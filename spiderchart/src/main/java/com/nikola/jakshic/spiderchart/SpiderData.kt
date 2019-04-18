@@ -5,7 +5,7 @@ package com.nikola.jakshic.spiderchart
  * @param color A color value in the form 0xAARRGGBB.
  */
 class SpiderData(values: FloatArray, var color: Int) {
-    var values: FloatArray = values
+    var values: FloatArray = floatArrayOf()
         private set(values) {
             for (i in 0 until values.size) {
                 var value = values[i]
@@ -15,4 +15,8 @@ class SpiderData(values: FloatArray, var color: Int) {
             }
             field = values
         }
+
+    init {
+        this.values = values
+    }
 }
