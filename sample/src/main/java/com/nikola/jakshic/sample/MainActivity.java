@@ -32,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
         spiderChart.setLabelSize(13f);
         spiderChart.setLabelColor(Color.GRAY);
-        spiderChart.setLabelMarginSize(10);
+        spiderChart.setLabelMarginSize(10f);
         spiderChart.setWebColor(Color.GRAY);
         spiderChart.setWebBackgroundColor(Color.WHITE);
-        spiderChart.setWebStrokeWidth(1);
+        spiderChart.setWebStrokeWidth(1f);
         spiderChart.setWebEdgeColor(Color.BLACK);
         spiderChart.setWebEdgeStrokeWidth(1.5f);
         spiderChart.setRotationAngle(90f);
