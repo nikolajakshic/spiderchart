@@ -22,7 +22,7 @@ Then, in your app-level `build.gradle` file, declare `SpiderChart` as a dependen
 
 ```groovy
 dependencies {
-    implementation 'com.github.nikolajakshic:spiderchart:1.0.1'
+    implementation 'com.github.nikolajakshic:spiderchart:1.0.2'
 }
 ```
 
