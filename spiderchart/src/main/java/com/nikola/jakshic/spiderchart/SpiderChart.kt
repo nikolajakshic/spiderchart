@@ -116,17 +116,13 @@ class SpiderChart @JvmOverloads constructor(
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val width = MeasureSpec.getSize(widthMeasureSpec)
         val height = MeasureSpec.getSize(heightMeasureSpec)
-
         maxLabelWidth = getMaxLabelWidth() + labelMarginSize
         maxLabelHeight = getMaxLabelHeight() + labelMarginSize
-
-        val desiredWidth = min(width, height)
-        val radius = desiredWidth / 2 - maxLabelWidth
-        val desiredHeight = (radius * 2 + maxLabelHeight * 2).toInt()
-
-        val measuredWidth = resolveSize(desiredWidth, widthMeasureSpec)
-        val measuredHeight = resolveSize(desiredHeight, heightMeasureSpec)
-
+        val radius = min((width - maxLabelWidth * 2) / 2f, (height - maxLabelHeight * 2) / 2f)
+        val desiredHeight = 2 * radius + 2 * maxLabelHeight
+        val desiredWidth = 2 * radius + 2 * maxLabelWidth
+        val measuredWidth = resolveSize(desiredWidth.toInt(), widthMeasureSpec)
+        val measuredHeight = resolveSize(desiredHeight.toInt(), heightMeasureSpec)
         setMeasuredDimension(measuredWidth, measuredHeight)
     }
 
@@ -135,7 +131,7 @@ class SpiderChart @JvmOverloads constructor(
 
         if (edgeCount == 0) return
 
-        val radius = min(width, height) / 2f - maxLabelWidth
+        val radius = min((width - maxLabelWidth * 2) / 2f, (height - maxLabelHeight * 2) / 2f)
 
         drawWebBackground(canvas, backgroundPath, backgroundPaint, radius)
         if (drawWeb) drawWeb(canvas, webPaint, radius)
