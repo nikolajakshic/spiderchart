@@ -145,11 +145,6 @@ class SpiderChart @JvmOverloads constructor(
         resetPaths()
     }
 
-    override fun invalidate() {
-        super.invalidate()
-        resetPaths()
-    }
-
     private fun drawPolygon(canvas: Canvas, paint: Paint, radiusLength: Float) {
         val centerX = width / 2f
         val centerY = height / 2f
@@ -481,8 +476,9 @@ class SpiderChart @JvmOverloads constructor(
     /** Returns whether the labels will be drawn or not. */
     fun getDrawLabels() = drawLabels
 
-    /** A convenience function for [View.invalidate]. */
     fun refresh() {
+        resetPaths()
+        requestLayout() // request re-measurement for labels change
         invalidate()
     }
 
