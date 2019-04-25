@@ -45,8 +45,8 @@ SpiderChart spiderChart = findViewById(R.id.spider_chart);
 Add data:
 
 ```java
-float[] values1 = {45f, 82f, 76f, 55f, 55f, 55f};
-float[] values2 = {85f, 72f, 41f, 75f, 75f, 75f};
+float[] values1 = {45f, 82f, 76f, 55f, 55f, 55f}; // values must be in the range 0..100
+float[] values2 = {85f, 72f, 41f, 75f, 75f, 75f}; // values must be in the range 0..100
 
 int color1 = Color.argb(125, 193, 230, 219);
 int color2 = Color.argb(125, 209, 217, 234);
