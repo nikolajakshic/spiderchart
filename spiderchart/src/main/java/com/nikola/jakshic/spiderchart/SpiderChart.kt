@@ -158,16 +158,17 @@ class SpiderChart @JvmOverloads constructor(
             val y = centerY + (radiusLength) * (sin(toRadians(angle))).toFloat()
 
             if (i == 0) {
-                points[i] = x
-                points[i + 1] = y
+                points[i] = x // start point
+                points[i + 1] = y // start point
             } else {
-                points[i * 4 - 2] = x
-                points[i * 4 - 1] = y
+                points[i * 4 - 2] = x // end point
+                points[i * 4 - 1] = y // end point
 
                 // If we have reached to the last edge, no need to save the starting points for the next one.
                 if (i != edgeCount) {
-                    points[i * 4] = x
-                    points[i * 4 + 1] = y
+                    // Next point starts where the last one ended.
+                    points[i * 4] = x // next start point
+                    points[i * 4 + 1] = y // next start point
                 }
             }
         }
