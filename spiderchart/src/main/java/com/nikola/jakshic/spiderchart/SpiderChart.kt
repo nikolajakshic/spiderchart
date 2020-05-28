@@ -70,6 +70,10 @@ class SpiderChart @JvmOverloads constructor(
 
     private var edgeCount = 0
 
+    // Points that are used to draw the lines for polygon/web. Single line (edge) has 4 points,
+    // start and end point for the X-axis, start and end point for the Y-axis.
+    private var points = FloatArray(edgeCount * 4)
+
     init {
         webPaint.isAntiAlias = true
         webPaint.style = Paint.Style.STROKE
@@ -149,8 +153,6 @@ class SpiderChart @JvmOverloads constructor(
         val centerX = width / 2f
         val centerY = height / 2f
 
-        val points = FloatArray(edgeCount * 4)
-
         for (i in 0..edgeCount) {
             val angle = i * (360.0 / edgeCount) - rotationAngle
 
@@ -208,8 +210,6 @@ class SpiderChart @JvmOverloads constructor(
         fun drawRadii(canvas: Canvas, paint: Paint, radiusLength: Float) {
             val centerX = width / 2f
             val centerY = height / 2f
-
-            val points = FloatArray(edgeCount * 4)
 
             for (i in 0 until edgeCount) {
                 val angle = i * (360.0 / edgeCount) - rotationAngle
@@ -322,6 +322,7 @@ class SpiderChart @JvmOverloads constructor(
 
         if (data.isNotEmpty()) {
             edgeCount = data[0].values.size
+            points = FloatArray(edgeCount * 4)
         }
     }
 
