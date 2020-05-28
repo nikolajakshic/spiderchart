@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         spiderChart.setWebEdgeColor(Color.BLACK);
         spiderChart.setWebEdgeStrokeWidth(1.5f);
         spiderChart.setRotationAngle(90f);
+        spiderChart.setDrawLabels(true);
+        spiderChart.setDrawWeb(true);
 
         spiderChart.setLabels(labels);
         spiderChart.setData(data);
